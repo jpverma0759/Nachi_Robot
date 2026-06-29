@@ -1,0 +1,30 @@
+REM "Main_Prog"
+REM "--------------------1------------------------"
+MULTIM O5103,0
+*Recipe
+Recipe = 0
+Recipe = I153*1+I154*2+I155*4+I156*8+I157*16+I158*32+I159*64+I160*128
+IF Recipe=0
+GOTO *Recipe
+ENDIF
+MULTIM O5103,Recipe
+WAITI I11
+USE Recipe
+REM "---------------------1-------------------------"
+IF O10+I10>0 THEN *Initial ELSE *Origin
+*Origin
+CALLP 255
+GOTO *Loop
+*Initial
+CALLP 1001
+GOTO *Loop
+*Loop
+CALLPI 1010,I129
+CALLPI 2020,I130
+CALLPI 3010,I131
+CALLPI 4010,I132
+IF V103%=V107%
+LETVI V107%,V103%
+ENDIF
+GOTO *Loop
+END

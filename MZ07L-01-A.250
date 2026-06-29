@@ -1,0 +1,9 @@
+REM "HOME POSITION "
+REM "Ver_1.0"
+REM "06-JUNE-2026"
+REM "------------------------"
+V12%=V11%
+V11% = 1000
+MOVEX A=2,AC=0,SM=1,M1X,P,P1,R=100,H=1,MS,CONF=0010
+V100%=1
+END
